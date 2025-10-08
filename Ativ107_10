@@ -1,0 +1,25 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+float molas(float compra, int parce){
+    float val_par=compra/parce;
+    return val_par;
+}
+
+int main(){
+    float compra;
+    int parce;
+    
+    cin>>compra>>parce;
+    float val_par = molas(compra, parce);
+    cout<<"Valor a prazo";
+    cout<<"\nValor da compra= "<<compra;
+    cout<<"\nNumero de parcelas = "<<parce;
+    cout<<"\nValor por parcela = ";
+    cout<<fixed<<setprecision(2)<<val_par;
+    
+    return 0;
+}
