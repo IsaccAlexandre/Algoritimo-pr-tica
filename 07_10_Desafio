@@ -1,0 +1,41 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+float molas(float alt, float larg, float prof){
+    float vol = alt*larg*prof;
+    return vol;
+}
+
+float molas2(float vol){
+    float verif = vol >= 1;
+    float esp_final = 0.8 + (vol >= 1 ) * ((vol>1)*ceil(vol))*0.3 ;
+    return esp_final;
+}
+float molas3(float larg, float prof, float esp_final, float alt){
+    float A = (alt*larg*2)+(alt*prof*2)+(larg*prof);
+    float Preco = A*45*esp_final;
+    return Preco;
+}
+
+int main(){
+    float alt, larg, prof;
+    cout<<"PREÇO DA CAIXA D'AGUA";
+    cout<<"\nLargura: ";
+    cin>>larg;
+    cout<<"Altura: ";
+    cin>>alt;
+    cout<<"Profundidade: ";
+    cin >>prof;
+    float vol = molas(alt, larg, prof);
+    float esp_final = molas2(vol);
+    float Preco = molas3(larg, prof, esp_final, alt);
+    
+    cout<<"Valor da caixa d'agua: ";
+    cout<<Preco;
+    
+    
+    return 0;
+}
